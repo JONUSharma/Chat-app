@@ -31,7 +31,7 @@ const HandleSignup = asyncHandler(async (req, res, next) => {
             expires: new Date(Date.now() + 2 * 24 * 60 * 1000),
             secure: true,
             sameSite: "None",
-            httpOnly: true,
+            httpOnly: false,
         })
 }
 )
@@ -60,7 +60,7 @@ const HandleLogin = asyncHandler(
         res.status(200)
             .cookie("token", sign, {
                 expires: new Date(Date.now() + 2 * 24 * 60 * 1000),
-                httpOnly: true,
+                httpOnly: false,
                 secure: true,
                 sameSite: "None"
             })

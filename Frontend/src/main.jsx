@@ -18,7 +18,7 @@ const route = createBrowserRouter([
   },
 
   {
-    path: "/chat-app",
+    path: "/login",
     element: <Login />,
   },
   {

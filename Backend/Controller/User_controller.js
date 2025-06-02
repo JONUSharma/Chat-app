@@ -25,14 +25,13 @@ const HandleSignup = asyncHandler(async (req, res, next) => {
     AddUser.password = await bcrypt.hash(password, 8);
     await AddUser.save();
 
-    res.json({ msg: "user added successfully", success: true, response: AddUser })
-        .status(200)
+    res.status(200)
         .cookie("token", AddUser, {
             expires: new Date(Date.now() + 2 * 24 * 60 * 1000),
             secure: true,
             sameSite: "None",
             httpOnly: false,
-        })
+        }).json({ msg: "user added successfully", success: true, response: AddUser })
 }
 )
 
@@ -88,7 +87,7 @@ const Logout = asyncHandler(async (req, res, next) => {
             expire: new Date(Date.now()),
             // httpOnly: true,
         }).json({
-            success :true,
+            success: true,
             msg: "logout successfully"
         })
 })

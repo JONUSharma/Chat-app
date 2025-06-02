@@ -19,14 +19,14 @@ app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    // origin: ["http://localhost:5173"],
     credentials : true,
 }))
 
 
 
 //connection mongodb
-const URL = "mongodb://localhost:27017/chat_app";
+const URL = process.env.DB || "mongodb://localhost:27017/chat_app";
 ConnectMongoDb(URL);
 
 //routes

@@ -11,7 +11,7 @@ export const SocketSlice = createSlice({
     initialState,
     reducers: {
         initiizeSocket: (state, actions) => {
-            const socket = io("http://localhost:2029",{
+            const socket = io("https://chat-app-ol0u.onrender.com",{
                 query: {
                     userID : actions.payload
                 }

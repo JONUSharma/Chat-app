@@ -19,10 +19,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: 'https://jonu-chat-app.netlify.app',
     credentials : true,
 }))
-
 
 
 //connection mongodb
